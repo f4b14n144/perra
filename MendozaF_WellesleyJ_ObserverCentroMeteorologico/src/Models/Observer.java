@@ -8,8 +8,7 @@ package Models;
  *
  * @author fabia
  */
-public interface Suscrito 
-{
-    void actualizar ( float temperatura);
-    
+public interface Observer {
+    void actualizar(int temperatura);
 }
+

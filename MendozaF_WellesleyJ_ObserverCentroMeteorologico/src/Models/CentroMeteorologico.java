@@ -10,8 +10,8 @@ package Models;
  */
 public interface CentroMeteorologico 
 {
-    void registrarSubscriptor(Suscrito sus);
+   
     
-    void notificarCambio(float temperatura);
+    void notificar (int temperatura);
     
 }
