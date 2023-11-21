@@ -58,7 +58,7 @@ public class Visual implements ActionListener{
     
     public Visual() {
     JFrame frame = new JFrame();
-        frame.setTitle("Two Panels with Temperature Reader");
+        frame.setTitle("Deber Temperatura");
         frame.setSize(700, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
