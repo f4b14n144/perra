@@ -8,31 +8,30 @@ import java.awt.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import Models.Usuario;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import static java.awt.BorderLayout.CENTER;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements ActionListener {
+    
+    private JFrame frame;
     private Termometro termometro;
     private JSlider slider;
-
-public MainFrame() {
-    
-         // Create JLabels for notifications
-        JLabel labelUsuario1 = new JLabel();
-        JLabel labelUsuario2 = new JLabel();
-        JLabel labelUsuario3 = new JLabel();
-        JLabel labelUsuario4 = new JLabel();
-        JLabel labelUsuario5 = new JLabel();
-
-        // Create Usuario instances and associate each with its corresponding JLabel
+    private JPanel panelMedio;
   
 
+public MainFrame() {
+        // Create the main frame
+        frame = new JFrame();
+        frame.setVisible(true);
+        frame.setTitle("Sistema de Monitoreo Meteorológico");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(500, 450);
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
 
-
-        
-        setTitle("Sistema de Monitoreo Meteorológico");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 450); // Aumenté la altura para dar espacio al JLabel
-        setLocationRelativeTo(null);
-
+        // Create the Termometro and slider
         termometro = new Termometro();
         slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
 
@@ -44,27 +43,47 @@ public MainFrame() {
             }
         });
 
+        // Create the panelMedio
+        panelMedio = new JPanel();
+        panelMedio.setBackground(Color.red);
+        panelMedio.setLayout(new BorderLayout());
+
+        // Add Termometro to panelMedio at the center
+        panelMedio.add(termometro, BorderLayout.CENTER);
+
+        // Create the main panel
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        
-        JLabel label = new JLabel("Termómetro", SwingConstants.CENTER); // Creación del JLabel
-        panel.add(label, BorderLayout.NORTH); // Agregar el JLabel al panel encima del termómetro
-        
-        panel.add(termometro, BorderLayout.CENTER);
-        panel.add(slider, BorderLayout.SOUTH);
 
-        add(panel);
+        JLabel label = new JLabel("Termómetro", SwingConstants.CENTER);
+        panel.add(label, BorderLayout.NORTH);
+        panel.add(panelMedio, BorderLayout.CENTER); // Add panelMedio to the center of the panel
+        panel.add(slider, BorderLayout.SOUTH);
+        
+        JLabel labelus= new JLabel();
+        labelus.setSize(100,40);
+        
+
+        // Add the main panel to the frame
+        frame.add(panel);
+
+        // Create Usuario instances
         Usuario usuario1 = new Usuario("Joseph");
         Usuario usuario2 = new Usuario("Fabian");
         Usuario usuario3 = new Usuario("Paula");
         Usuario usuario4 = new Usuario("Juan");
         Usuario usuario5 = new Usuario("Josefa");
 
+        // Add observers to the Termometro
         termometro.addObserver(usuario1);
         termometro.addObserver(usuario2);
         termometro.addObserver(usuario3);
         termometro.addObserver(usuario4);
         termometro.addObserver(usuario5);
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 

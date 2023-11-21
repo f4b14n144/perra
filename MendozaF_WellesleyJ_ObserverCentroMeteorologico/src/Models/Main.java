@@ -5,6 +5,9 @@
 package Models;
 
 import Visual.MainFrame;
+import Visual.Visual;
+
+
 import javax.swing.SwingUtilities;
 
 /**
@@ -16,12 +19,15 @@ public class Main {
   
     public static void main(String[] args) 
     {
+        //MainFrame frame = new MainFrame();
+       Visual visual = new Visual();
+              
         
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MainFrame frame = new MainFrame();
-                frame.setVisible(true);
+                
+               
             }
         });
     }
