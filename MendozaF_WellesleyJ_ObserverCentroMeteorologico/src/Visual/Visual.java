@@ -219,7 +219,7 @@ public class Visual implements ActionListener{
         termometro.addObserver(usuario5);
 
     }
-    
+    /*
       public void actualizarLabelsPorNombre(String nombre, int temperatura){
           
           if(nombre.equalsIgnoreCase("Joseph")){
@@ -241,10 +241,10 @@ public class Visual implements ActionListener{
               
               mensaje4.setText(nombre+" la temp es: "+temperatura);
           }
+        */
         
         
-        
-    }
+    
 
 
     

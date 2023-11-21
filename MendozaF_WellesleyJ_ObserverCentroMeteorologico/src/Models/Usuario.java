@@ -21,6 +21,6 @@ public class Usuario implements Observer {
     public void actualizar(int temperatura) {
         System.out.println("Hola " + nombre + "! La temperatura ha cambiado a: " + temperatura);
         
-         visual.actualizarLabelsPorNombre(nombre, temperatura);
+         //visual.actualizarLabelsPorNombre(nombre, temperatura);
     }
 }
