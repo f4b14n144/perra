@@ -10,5 +10,7 @@ package Models;
  */
 public interface Observer {
     void actualizar(int temperatura);
+    //String getNombre(String nombre);
+    
 }
 

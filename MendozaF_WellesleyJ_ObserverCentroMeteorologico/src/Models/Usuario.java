@@ -18,9 +18,11 @@ public class Usuario implements Observer {
     }
 
     @Override
-    public void actualizar(int temperatura) {
+    public void actualizar(int temperatura) 
+    {
         System.out.println("Hola " + nombre + "! La temperatura ha cambiado a: " + temperatura);
-        
-         //visual.actualizarLabelsPorNombre(nombre, temperatura);
+      
     }
+  
+    
 }

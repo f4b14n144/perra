@@ -27,7 +27,7 @@ import javax.swing.event.ChangeListener;
  *
  * @author jellz
  */
-public class Visual implements ActionListener{
+public  class Visual implements ActionListener{
     
     
         private JPanel panel1;
@@ -111,7 +111,7 @@ public class Visual implements ActionListener{
         mensaje4.setText("Mensaje de notificacion");
         
         
-        boton = new JRadioButton("Suscrito"); 
+        boton = new JRadioButton(); 
         boton.setSize(100,20);
         boton.setLocation(45,50);
         boton.addActionListener(this);
@@ -219,8 +219,9 @@ public class Visual implements ActionListener{
         termometro.addObserver(usuario5);
 
     }
+         //visual.actualizarLabelsPorNombre(nombre, temperatura);
     /*
-      public void actualizarLabelsPorNombre(String nombre, int temperatura){
+       public  void actualizarLabelsPorNombre(String nombre, int temperatura){
           
           if(nombre.equalsIgnoreCase("Joseph")){
               
@@ -240,11 +241,12 @@ public class Visual implements ActionListener{
           else if(nombre.equalsIgnoreCase("Josefa")){
               
               mensaje4.setText(nombre+" la temp es: "+temperatura);
-          }
-        */
+          } 
+       }
         
         
-    
+        
+    */
 
 
     
@@ -254,19 +256,19 @@ public class Visual implements ActionListener{
         
         if (e.getSource() == boton) {
             
-          //  termometro.addObserver(usuario1);
+          boton.setText("Suscrito!");
             
         } else if (e.getSource() == boton1) {
             
-            //termometro.addObserver(usuario2);
+            boton1.setText("Suscrito!");
             
         } else if (e.getSource() == boton2) {
             
-           // termometro.addObserver(usuario3);
+           boton2.setText("Suscrito!");
             
         } else if (e.getSource() == boton3) {
-            
-           // termometro.addObserver(usuario4);
+           
+           boton3.set
             
         } else if (e.getSource() == boton4) {
             
