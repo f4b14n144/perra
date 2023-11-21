@@ -10,7 +10,7 @@ import Visual.Visual;
  * @author fabia
  */
 public class Usuario implements Observer {
-    private Visual visual = new Visual();
+   // private Visual visual = new Visual();
     private String nombre;
 
     public Usuario(String nombre) {
