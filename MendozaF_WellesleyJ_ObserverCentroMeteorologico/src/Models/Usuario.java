@@ -9,20 +9,37 @@ import Visual.Visual;
  *
  * @author fabia
  */
-public class Usuario implements Observer {
-   // private Visual visual = new Visual();
+public class Usuario implements Observer  {
     private String nombre;
+
+    private int temperatura;
 
     public Usuario(String nombre) {
         this.nombre = nombre;
+
     }
 
     @Override
-    public void actualizar(int temperatura) 
-    {
+    public void actualizar(int temperatura) {
+        
         System.out.println("Hola " + nombre + "! La temperatura ha cambiado a: " + temperatura);
+        this.temperatura = temperatura;
+
+        // Use the existing Visual instance to update labels
       
     }
-  
-    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getTemperatura() {
+        return temperatura;
+    }
 }
+
+
+
+
+  
+

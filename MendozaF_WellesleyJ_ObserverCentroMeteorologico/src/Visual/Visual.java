@@ -33,7 +33,7 @@ public  class Visual implements ActionListener{
         private JPanel panel1;
         private JPanel panel2;
         private JFrame frame;
-        private Termometro termometro;
+     //   private Termometro termometro;
         private JLabel mensaje;
         private JLabel mensaje1;
         private JLabel mensaje2;
@@ -49,17 +49,32 @@ public  class Visual implements ActionListener{
         private JRadioButton boton2;
         private JRadioButton boton3;
         private JRadioButton boton4;
+       private boolean estaAplastado = false;
+       private boolean estaAplastado2 = false;
+       private boolean estaAplastado3 = false;
+       private boolean estaAplastado4 = false;
+       private boolean estaAplastado5 = false;
         
        
+
+         Termometro termometro = new Termometro();
+          Usuario usuario1 = new Usuario("Joseph");
+         Usuario usuario2 = new Usuario("Fabian");
+         Usuario usuario3 = new Usuario("Paula");
+        Usuario usuario4 = new Usuario("Juan");
+        Usuario usuario5 = new Usuario("Josefa");
+  
         
-        
-        
+     
+   
         
     
     public Visual() {
+                
     JFrame frame = new JFrame();
         frame.setTitle("Deber Temperatura");
-        frame.setSize(700, 400);
+        frame.setSize(700, 450);
+        frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
        
@@ -74,8 +89,8 @@ public  class Visual implements ActionListener{
         
         JPanel panel2 = new JPanel(new BorderLayout());
         panel2.setBackground(new Color(240,240,240)); 
-
-        Termometro termometro = new Termometro();
+        
+    
         termometro.setBackground(new Color(150,150,150));
         termometro.setSize(200,300);
         JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
@@ -116,24 +131,24 @@ public  class Visual implements ActionListener{
         boton.setLocation(45,50);
         boton.addActionListener(this);
         
-        boton1 = new JRadioButton("Suscrito"); 
+        boton1 = new JRadioButton(); 
         boton1.setSize(100,20);
         boton1.setLocation(45,125);
         boton1.addActionListener(this);
         
         
-        boton2 = new JRadioButton("Suscrito"); 
+        boton2 = new JRadioButton(); 
         boton2.setSize(100,20);
         boton2.setLocation(45,200);
         boton2.addActionListener(this);
         
         
-        boton3 = new JRadioButton("Suscrito"); 
+        boton3 = new JRadioButton(); 
         boton3.setSize(100,20);
         boton3.setLocation(45,275);
         boton3.addActionListener(this);
         
-        boton4 = new JRadioButton("Suscrito"); 
+        boton4 = new JRadioButton(); 
         boton4.setSize(100,20);
         boton4.setLocation(45,350);
         boton4.addActionListener(this);
@@ -205,79 +220,108 @@ public  class Visual implements ActionListener{
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         
-        Usuario usuario1 = new Usuario("Joseph");
-        Usuario usuario2 = new Usuario("Fabian");
-        Usuario usuario3 = new Usuario("Paula");
-        Usuario usuario4 = new Usuario("Juan");
-        Usuario usuario5 = new Usuario("Josefa");
+
 
        
-        termometro.addObserver(usuario1);
-        termometro.addObserver(usuario2);
-        termometro.addObserver(usuario3);
-        termometro.addObserver(usuario4);
-        termometro.addObserver(usuario5);
+        // termometro.addObserver(usuario1);
+        //termometro.addObserver(usuario2);
+     //   termometro.addObserver(usuario3);
+       // termometro.addObserver(usuario4);
+        //termometro.addObserver(usuario5);
 
     }
          //visual.actualizarLabelsPorNombre(nombre, temperatura);
-    /*
-       public  void actualizarLabelsPorNombre(String nombre, int temperatura){
+    
+                public  void actualizarLabelsPorNombre(String nombre,int temperatura) {
           
-          if(nombre.equalsIgnoreCase("Joseph")){
-              
-              mensaje.setText(nombre+" la temp es: "+temperatura);
-          }
-          else if (nombre.equalsIgnoreCase("Fabian")){
-              mensaje1.setText(nombre+" la temp es: "+temperatura);
-          }
-          else if(nombre.equalsIgnoreCase("Paula")){
-              
-              mensaje2.setText(nombre+" la temp es: "+temperatura);
-          }
-          else if(nombre.equalsIgnoreCase("Juan")){
-              
-              mensaje3.setText(nombre+" la temp es: "+temperatura);
-          }
-          else if(nombre.equalsIgnoreCase("Josefa")){
-              
-              mensaje4.setText(nombre+" la temp es: "+temperatura);
-          } 
-       }
+                    if(nombre.equalsIgnoreCase("Joseph")){
+                        
+                        mensaje.setText("Hola: "+nombre+" la temp es: "+temperatura);
+                        
+                    }
+                }
+                
         
         
-        
-    */
+    
 
 
     
-  
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-        if (e.getSource() == boton) {
+
+      
+
+               @Override
+                 public void actionPerformed(ActionEvent e) {
+                     if (e.getSource() == boton) {
+                         cambiarLabelBoton(boton);
+
+                         if (!estaAplastado) {
+                             termometro.addObserver(usuario1);
+                             estaAplastado = true;
+                         } else {
+                             termometro.removeObserver(usuario1);
+                             estaAplastado = false;  
+                         }
+
+                     } else if (e.getSource() == boton1) {
+                         cambiarLabelBoton(boton1);
+
+                         if (!estaAplastado2) {
+                             termometro.addObserver(usuario2);
+                             estaAplastado2 = true;
+                         } else {
+                             termometro.removeObserver(usuario2);
+                             estaAplastado2 = false; 
+                         }
+
+                     } else if (e.getSource() == boton2) {
+                         cambiarLabelBoton(boton2);
+
+                         if (!estaAplastado3) {
+                             termometro.addObserver(usuario3);
+                             estaAplastado3 = true;
+                         } else {
+                             termometro.removeObserver(usuario3);
+                             estaAplastado3 = false;  
+                         }
+
+                     } else if (e.getSource() == boton3) {
+                         cambiarLabelBoton(boton3);
+
+                         if (!estaAplastado4) {
+                             termometro.addObserver(usuario4);
+                             estaAplastado4 = true;
+                         } else {
+                             termometro.removeObserver(usuario4);
+                             estaAplastado4 = false;  
+                         }
+
+                     } else if (e.getSource() == boton4) {
+                         cambiarLabelBoton(boton4);
+
+                         if (!estaAplastado5) {
+                             termometro.addObserver(usuario5);
+                             estaAplastado5 = true;
+                         } else {
+                             termometro.removeObserver(usuario5);
+                             estaAplastado5 = false;  
+                         }
+                     }
+                 }
+
             
-          boton.setText("Suscrito!");
-            
-        } else if (e.getSource() == boton1) {
-            
-            boton1.setText("Suscrito!");
-            
-        } else if (e.getSource() == boton2) {
-            
-           boton2.setText("Suscrito!");
-            
-        } else if (e.getSource() == boton3) {
-           
-           boton3.set
-            
-        } else if (e.getSource() == boton4) {
-            
-           // termometro.addObserver(usuario5);
-            
-        }
-        
-    }
-        
+            private void cambiarLabelBoton(JRadioButton botonn){
+                
+                            if ("Suscrito!".equals(botonn.getText())) {
+                                
+                                    botonn.setText(""); 
+                                    
+                                           } 
+                            else {
+                                
+                                      botonn.setText("Suscrito!");
+                        }
+           }
     
         
     }

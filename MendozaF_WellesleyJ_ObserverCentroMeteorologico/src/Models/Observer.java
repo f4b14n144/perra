@@ -4,13 +4,16 @@
  */
 package Models;
 
+import Visual.Visual;
+
 /**
  *
  * @author fabia
  */
 public interface Observer {
     void actualizar(int temperatura);
-    //String getNombre(String nombre);
+  // String getNombre(String nombre);
+ 
     
 }
 

@@ -4,7 +4,6 @@
  */
 package Models;
 
-import Visual.MainFrame;
 import Visual.Visual;
 
 
@@ -20,7 +19,8 @@ public class Main {
     public static void main(String[] args) 
     {
         //MainFrame frame = new MainFrame();
-       Visual visual = new Visual();
+       Visual vis = new Visual();
+     
               
         
         SwingUtilities.invokeLater(new Runnable() {
