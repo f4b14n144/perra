@@ -15,6 +15,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -99,7 +101,30 @@ public  class Visual implements ActionListener{
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
 
-        
+slider.addChangeListener(new ChangeListener() {
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        JSlider source = (JSlider) e.getSource();
+        int sliderValue = source.getValue();
+        //System.out.println("Slider value: " + sliderValue);
+        // Add your code here for handling the slider value change
+    }
+});
+
+slider.addMouseListener(new MouseAdapter() {
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        // This is called when the mouse is released after moving the slider
+        int sliderValue = slider.getValue();
+       // System.out.println("Mouse released - Slider value: " + sliderValue);
+
+        // Update the temperature using the slider value
+        termometro.setTemperatura(sliderValue);
+
+        // Add your code to send the slider value or perform any other action related to temperature
+        // e.g., sendSliderValueAsTemperature(sliderValue);
+    }
+});
         mensaje = new JLabel();
         mensaje.setSize(250,20);
         mensaje.setLocation(150,50);
@@ -205,7 +230,7 @@ public  class Visual implements ActionListener{
         panel1.add(cuadro5);
        
 
-        slider.addChangeListener(e -> termometro.setTemperatura(slider.getValue()));
+      //  slider.addChangeListener(e -> termometro.setTemperatura(slider.getValue()));
         
        
         panel2.add(termometro, BorderLayout.CENTER);

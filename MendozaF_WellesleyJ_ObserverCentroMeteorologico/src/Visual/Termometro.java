@@ -29,7 +29,7 @@ public class Termometro extends JPanel {
         observadores.remove(observer);
     }
 
-    private void notifyObservers() {
+    private void notifyObservers(int temperatura) {
         for (Observer observer : observadores) {
             observer.actualizar(temperatura);
         }
@@ -46,7 +46,7 @@ public class Termometro extends JPanel {
             color = Color.RED;
         }
 
-        notifyObservers();
+        notifyObservers(temperatura);
         repaint();
     }
 
