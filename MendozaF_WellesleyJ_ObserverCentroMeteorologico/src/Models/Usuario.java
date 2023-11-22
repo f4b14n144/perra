@@ -24,8 +24,9 @@ public class Usuario implements Observer  {
         
         System.out.println("Hola " + nombre + "! La temperatura ha cambiado a: " + temperatura);
         this.temperatura = temperatura;
+        this.nombre = nombre;
 
-        // Use the existing Visual instance to update labels
+        
       
     }
 

@@ -232,13 +232,17 @@ public  class Visual implements ActionListener{
     }
          //visual.actualizarLabelsPorNombre(nombre, temperatura);
     
-                public  void actualizarLabelsPorNombre(String nombre,int temperatura) {
+                public  void actualizarLabelsPorNombre() {
+                    
+                    String nombreUsu = usuario1.getNombre();
+                    int temperatuUsu = usuario1.getTemperatura();
           
-                    if(nombre.equalsIgnoreCase("Joseph")){
+                    
                         
-                        mensaje.setText("Hola: "+nombre+" la temp es: "+temperatura);
+                        mensaje.setText("Hola: "+nombreUsu+" la temp es: "+temperatuUsu);
+
                         
-                    }
+                    
                 }
                 
         
@@ -257,6 +261,7 @@ public  class Visual implements ActionListener{
 
                          if (!estaAplastado) {
                              termometro.addObserver(usuario1);
+                             actualizarLabelsPorNombre();
                              estaAplastado = true;
                          } else {
                              termometro.removeObserver(usuario1);
