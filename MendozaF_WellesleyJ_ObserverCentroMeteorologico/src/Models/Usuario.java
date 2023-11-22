@@ -11,11 +11,14 @@ import Visual.Visual;
  */
 public class Usuario implements Observer  {
     private String nombre;
+    private Visual visual;
+    
 
     private int temperatura;
 
     public Usuario(String nombre) {
         this.nombre = nombre;
+        
 
     }
 
@@ -25,6 +28,7 @@ public class Usuario implements Observer  {
         System.out.println("Hola " + nombre + "! La temperatura ha cambiado a: " + temperatura);
         this.temperatura = temperatura;
         this.nombre = nombre;
+        //visual.actualizarLabelsPorNombre(temperatura,nombre);
 
         
       

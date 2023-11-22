@@ -257,14 +257,12 @@ slider.addMouseListener(new MouseAdapter() {
     }
          //visual.actualizarLabelsPorNombre(nombre, temperatura);
     
-                public  void actualizarLabelsPorNombre() {
+                public  void actualizarLabelsPorNombre(int temperaturaUsu, String nombreUsu) {
                     
-                    String nombreUsu = usuario1.getNombre();
-                    int temperatuUsu = usuario1.getTemperatura();
           
                     
                         
-                        mensaje.setText("Hola: "+nombreUsu+" la temp es: "+temperatuUsu);
+                        mensaje.setText("Hola: "+nombreUsu+" la temp es: "+temperaturaUsu);
 
                         
                     
@@ -272,11 +270,8 @@ slider.addMouseListener(new MouseAdapter() {
                 
         
         
+   
     
-
-
-    
-
       
 
                @Override
@@ -286,7 +281,7 @@ slider.addMouseListener(new MouseAdapter() {
 
                          if (!estaAplastado) {
                              termometro.addObserver(usuario1);
-                             actualizarLabelsPorNombre();
+                             
                              estaAplastado = true;
                          } else {
                              termometro.removeObserver(usuario1);
