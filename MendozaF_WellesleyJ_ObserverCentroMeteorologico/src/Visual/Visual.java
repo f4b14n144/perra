@@ -56,22 +56,44 @@ public  class Visual implements ActionListener{
        private boolean estaAplastado3 = false;
        private boolean estaAplastado4 = false;
        private boolean estaAplastado5 = false;
-        
-       
+        int latestSliderValue = 0;
+         private Usuario usuario1;
+        private Usuario usuario2;
+         private Usuario usuario3;
+        private Usuario usuario4;
+         private Usuario usuario5;
 
-         Termometro termometro = new Termometro();
-          Usuario usuario1 = new Usuario("Joseph");
-         Usuario usuario2 = new Usuario("Fabian");
-         Usuario usuario3 = new Usuario("Paula");
-        Usuario usuario4 = new Usuario("Juan");
-        Usuario usuario5 = new Usuario("Josefa");
+
+                   
+JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
+
   
-        
-     
+         Termometro termometro = new Termometro();
    
         
     
     public Visual() {
+        
+
+              
+
+    }
+        
+        
+        public void Menu(Visual visual){
+            
+        
+          Usuario usuario1 = new Usuario("Joseph", visual);
+          this.usuario1=usuario1;
+       Usuario usuario2 = new Usuario("Fabian",visual);
+       this.usuario2=usuario2;
+        Usuario usuario3 = new Usuario("Paula",visual);
+        this.usuario3=usuario3;
+      Usuario usuario4 = new Usuario("Juan",visual);
+      this.usuario4=usuario4;
+       Usuario usuario5 = new Usuario("Josefa",visual);
+       this.usuario5 =usuario5;
+        
                 
     JFrame frame = new JFrame();
         frame.setTitle("Deber Temperatura");
@@ -95,60 +117,64 @@ public  class Visual implements ActionListener{
     
         termometro.setBackground(new Color(150,150,150));
         termometro.setSize(200,300);
-        JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
+      //  JSlider slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 0);
         slider.setMajorTickSpacing(20);
         slider.setMinorTickSpacing(5);
         slider.setPaintTicks(true);
         slider.setPaintLabels(true);
 
-slider.addChangeListener(new ChangeListener() {
-    @Override
-    public void stateChanged(ChangeEvent e) {
-        JSlider source = (JSlider) e.getSource();
-        int sliderValue = source.getValue();
-        //System.out.println("Slider value: " + sliderValue);
-        // Add your code here for handling the slider value change
-    }
-});
+        slider.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                JSlider source = (JSlider) e.getSource();
+                int sliderValue = source.getValue();
+                
+                
+                //System.out.println("Slider value: " + sliderValue);
+                // Add your code here for handling the slider value change
+            }
+        });
 
-slider.addMouseListener(new MouseAdapter() {
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        // This is called when the mouse is released after moving the slider
-        int sliderValue = slider.getValue();
-       // System.out.println("Mouse released - Slider value: " + sliderValue);
+            slider.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    // This is called when the mouse is released after moving the slider
+                                int sliderValue = slider.getValue();
+                     termometro.setTemperatura(sliderValue);
 
-        // Update the temperature using the slider value
-        termometro.setTemperatura(sliderValue);
+                     // Store the latest slider value
+                     latestSliderValue = sliderValue;;
+                   
+                    
 
-        // Add your code to send the slider value or perform any other action related to temperature
-        // e.g., sendSliderValueAsTemperature(sliderValue);
-    }
-});
+                    // Add your code to send the slider value or perform any other action related to temperature
+                    // e.g., sendSliderValueAsTemperature(sliderValue);
+                }
+            });
         mensaje = new JLabel();
         mensaje.setSize(250,20);
         mensaje.setLocation(150,50);
-        mensaje.setText("Mensaje de notificacion");
+        mensaje.setText(" ");
         
         mensaje1 = new JLabel();
         mensaje1.setSize(250,20);
         mensaje1.setLocation(150,125);
-        mensaje1.setText("Mensaje de notificacion");
+        mensaje1.setText(" ");
         
         mensaje2 = new JLabel();
         mensaje2.setSize(250,20);
         mensaje2.setLocation(150,200);
-        mensaje2.setText("Mensaje de notificacion");
+        mensaje2.setText(" ");
         
         mensaje3 = new JLabel();
         mensaje3.setSize(250,20);
         mensaje3.setLocation(150,275);
-        mensaje3.setText("Mensaje de notificacion");
+        mensaje3.setText(" ");
         
         mensaje4 = new JLabel();
         mensaje4.setSize(250,20);
         mensaje4.setLocation(150,350);
-        mensaje4.setText("Mensaje de notificacion");
+        mensaje4.setText(" ");
         
         
         boton = new JRadioButton(); 
@@ -257,12 +283,34 @@ slider.addMouseListener(new MouseAdapter() {
     }
          //visual.actualizarLabelsPorNombre(nombre, temperatura);
     
-                public  void actualizarLabelsPorNombre(int temperaturaUsu, String nombreUsu) {
+                public  void actualizarLabelsPorNombre(String Nombre, int temperatura) {
+                    
+                    if(Nombre.equalsIgnoreCase("Joseph")){
+                        
+                        mensaje.setText(usuario1.getNombre()+ " temperatura es: "+usuario1.getTemperatura());
+                        
+                    }
+                    else if(Nombre.equalsIgnoreCase("Fabian")){
+                        
+                        mensaje1.setText(usuario2.getNombre()+ " temperatura es: "+usuario2.getTemperatura());
+                    }
+                    else if(Nombre.equalsIgnoreCase("Paula")){
+                        
+                        mensaje2.setText(usuario3.getNombre()+ " temperatura es: "+usuario3.getTemperatura());
+                    }
+                    else if(Nombre.equalsIgnoreCase("Juan")){
+                        
+                        mensaje3.setText(usuario4.getNombre()+ " temperatura es: "+usuario4.getTemperatura());
+                        
+                    }
+                    else if(Nombre.equalsIgnoreCase("Josefa")){
+                        
+                        mensaje4.setText(usuario5.getNombre()+ " temperatura es: "+usuario5.getTemperatura());
+                    }
+                    
                     
           
-                    
-                        
-                        mensaje.setText("Hola: "+nombreUsu+" la temp es: "+temperaturaUsu);
+                  
 
                         
                     
@@ -276,48 +324,63 @@ slider.addMouseListener(new MouseAdapter() {
 
                @Override
                  public void actionPerformed(ActionEvent e) {
-                     if (e.getSource() == boton) {
-                         cambiarLabelBoton(boton);
+                      if (e.getSource() == boton) {
+            cambiarLabelBoton(boton);
 
-                         if (!estaAplastado) {
-                             termometro.addObserver(usuario1);
-                             
-                             estaAplastado = true;
-                         } else {
-                             termometro.removeObserver(usuario1);
-                             estaAplastado = false;  
-                         }
+            if (!estaAplastado) {
+                termometro.addObserver(usuario1);
+
+                // Use the latest slider value when the button is pressed
+                actualizarLabelsPorNombre("Joseph", usuario1.getTemperatura());
+
+                estaAplastado = true;
+            } else {
+                termometro.removeObserver(usuario1);
+                mensaje.setText(" ");
+                estaAplastado = false;
+            }
 
                      } else if (e.getSource() == boton1) {
                          cambiarLabelBoton(boton1);
+                         
 
                          if (!estaAplastado2) {
                              termometro.addObserver(usuario2);
+                             int sliderValue = slider.getValue();
+                            actualizarLabelsPorNombre("Fabian",usuario2.getTemperatura());
                              estaAplastado2 = true;
                          } else {
                              termometro.removeObserver(usuario2);
+                             mensaje1.setText(" ");
                              estaAplastado2 = false; 
                          }
 
                      } else if (e.getSource() == boton2) {
                          cambiarLabelBoton(boton2);
-
+                        
                          if (!estaAplastado3) {
                              termometro.addObserver(usuario3);
+                             int sliderValue = slider.getValue();
+                              actualizarLabelsPorNombre("Paula",usuario3.getTemperatura());
+
                              estaAplastado3 = true;
                          } else {
                              termometro.removeObserver(usuario3);
+                             mensaje2.setText(" ");
                              estaAplastado3 = false;  
                          }
 
                      } else if (e.getSource() == boton3) {
                          cambiarLabelBoton(boton3);
-
+                        
                          if (!estaAplastado4) {
                              termometro.addObserver(usuario4);
+                             int sliderValue = slider.getValue();
+                              actualizarLabelsPorNombre("Juan",usuario4.getTemperatura());
                              estaAplastado4 = true;
                          } else {
                              termometro.removeObserver(usuario4);
+                             mensaje3.setText(" ");
                              estaAplastado4 = false;  
                          }
 
@@ -326,9 +389,12 @@ slider.addMouseListener(new MouseAdapter() {
 
                          if (!estaAplastado5) {
                              termometro.addObserver(usuario5);
+                             int sliderValue = slider.getValue();
+                            actualizarLabelsPorNombre("Josefa",usuario5.getTemperatura());
                              estaAplastado5 = true;
                          } else {
                              termometro.removeObserver(usuario5);
+                             mensaje4.setText(" ");
                              estaAplastado5 = false;  
                          }
                      }

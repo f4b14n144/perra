@@ -20,6 +20,7 @@ public class Main {
     {
         //MainFrame frame = new MainFrame();
        Visual vis = new Visual();
+       vis.Menu(vis);
      
               
         
