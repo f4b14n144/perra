@@ -8,33 +8,24 @@ package Models;
  *
  * @author fabia
  */
-public class DecEmpleado implements Empleado
-{
-   
-     Empleado empleado;
-     
-     public DecEmpleado(Empleado empleado)
-     {
-         this.empleado=empleado;
-     }
-
-    @Override
-    public String getTipoEmpleado() 
-    {
+public class EmpleadoTiempoCompleto implements Empleado
         
-        return "something";
+{
+
+    @Override
+    public String getTipoEmpleado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-     @Override
-    public double getHoras() 
-    {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
     @Override
-    public double getPagoEmpleado() 
-    {
+    public double getPagoEmpleado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public double getHoras() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+        
 }
