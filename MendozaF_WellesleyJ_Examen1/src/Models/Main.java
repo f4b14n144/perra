@@ -22,7 +22,7 @@ public class Main {
        /*ReadDoc rd=new ReadDoc();
        rd.readDocument();*/
        
-       if ()
+   
 
         
         
