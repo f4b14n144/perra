@@ -6,6 +6,8 @@ package Models;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -13,9 +15,10 @@ import java.util.Scanner;
  * @author jellz
  */
 public class Reader {
-    public void leerArchivo() {
    
-    String filePath = "src/reader/Empleados.txt";
+   public Map<String, String> leerArchivo() {
+        Map<String, String> variablesMap = new HashMap<>();
+        String filePath = "src/reader/Empleados.txt";
 
         try {
             Scanner scanner = new Scanner(new File(filePath));
@@ -32,13 +35,22 @@ public class Reader {
                     // Define variable names
                     String[] variableNames = {"Nombre", "Tipo empleado", "minutos", "minutos extras", "seguro médico", "bonificaciones"};
 
-                    // Print each variable with its name
+                    // Store each variable with its name in the map
                     for (int i = 0; i < words.length; i++) {
-                        System.out.println(variableNames[i] + ": " + words[i].trim());
+                        variablesMap.put(variableNames[i], words[i].trim());
                     }
 
+                       /* String tipo = variablesMap.get("Tipo empleado");
+                        String nombre = variablesMap.get("Nombre");
+                        String minutos = variablesMap.get("minutos");
+                        String minutosExtra = variablesMap.get("minutos extras");
+                        String seguroMedico = variablesMap.get("Seguro médico");
+                        String bonificaciones = variablesMap.get("bonificaciones");
+                        */
                     break;
+                    
                 }
+                
 
                 lineNumber++;
             }
@@ -47,9 +59,7 @@ public class Reader {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        
+        return variablesMap;
     }
 }
-
-
-    
-
