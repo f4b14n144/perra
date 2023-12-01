@@ -8,7 +8,13 @@ package Models;
  *
  * @author fabia
  */
-public class Empleado 
+public  interface Empleado
 {
+    String getTipoEmpleado();
+    
+    double getPagoEmpleado();
+    
+    double getHoras();
+    
     
 }
