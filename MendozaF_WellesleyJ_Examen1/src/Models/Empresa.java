@@ -12,5 +12,7 @@ public interface Empresa
 {
     String getTipoEmpleado();
     
+    double getPagoEmpleado();
+    
     
 }
