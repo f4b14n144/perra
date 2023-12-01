@@ -11,20 +11,29 @@ package Models;
 public class EmpleadoTiempoCompleto implements Empleado
         
 {
+    double pago;
+    double horas;
+    
+    public EmpleadoTiempoCompleto(double pago,double horas)
+    {
+        this.pago=pago;
+        this.horas=horas;
+    }
 
     @Override
     public String getTipoEmpleado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return "Tiempo Completo";
     }
 
     @Override
     public double getPagoEmpleado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return pago;
     }
 
     @Override
-    public double getHoras() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public double getHoras() 
+    {
+        return horas;
     }
     
         

@@ -10,20 +10,30 @@ package Models;
  */
 public class EmpleadoTiempoParcial implements Empleado
 {
-
-    @Override
-    public String getTipoEmpleado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    double horas;
+    double pago;
+    public EmpleadoTiempoParcial(double horas,double pago)
+    {
+        this.horas=horas;
+        this.pago=pago;
     }
 
+    @Override
+    public String getTipoEmpleado() 
+    {
+        return "Tiempo Parcial";
+    }
+
+     @Override
+    public double getHoras() 
+    {
+        return horas;
+    }
     @Override
     public double getPagoEmpleado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return pago;
     }
 
-    @Override
-    public double getHoras() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+   
     
 }

@@ -4,6 +4,7 @@
  */
 package Models;
 
+
 /**
  *
  * @author fabia
@@ -13,8 +14,18 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) 
+    {
+        String tipo;
+        
+        
+       /*ReadDoc rd=new ReadDoc();
+       rd.readDocument();*/
+       
+       if ()
+
+        
+        
     }
     
 }

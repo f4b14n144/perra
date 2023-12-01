@@ -17,24 +17,26 @@ public class DecEmpleado implements Empleado
      {
          this.empleado=empleado;
      }
-
+     
+     
     @Override
     public String getTipoEmpleado() 
     {
         
-        return "something";
+        return empleado.getTipoEmpleado();
     }
 
      @Override
     public double getHoras() 
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       return empleado.getHoras();
     }
     
     @Override
     public double getPagoEmpleado() 
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return empleado.getPagoEmpleado();
     }
     
-}
+   
+    }
