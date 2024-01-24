@@ -51,7 +51,7 @@ public class Operaciones
     {
         try {
             ResultSet listado=mistatement.executeQuery("SELECT * from Empleado");
-            return ResultSet;
+            return listado;
         } catch (SQLException ex) {
             Logger.getLogger(Operaciones.class.getName()).log(Level.SEVERE, null, ex);
             return null;

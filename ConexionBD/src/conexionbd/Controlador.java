@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package conexionbd;
-
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author fabia
@@ -33,12 +35,15 @@ public class Controlador
     public void listar()
     {
         ResultSet listado=o.listarEmpleado();
-   
+      try {
             while(listado.next())
             {
-                System.out.println(listado.getSttring("cedula")+" ");
-                System.out.println(listado.getSttring("nombre")+" ");
-                System.out.println(listado.getSttring("apellidos")+" ");
+                System.out.println(listado.getString("cedula")+" ");
+                System.out.println(listado.getString("nombre")+" ");
+                System.out.println(listado.getString("apellidos")+" ");
+            }
+            } catch (SQLException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             
