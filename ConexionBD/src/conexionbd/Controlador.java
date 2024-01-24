@@ -30,4 +30,20 @@ public class Controlador
         }
     }
     
+    public void listar()
+    {
+        ResultSet listado=o.listarEmpleado();
+   
+            while(listado.next())
+            {
+                System.out.println(listado.getSttring("cedula")+" ");
+                System.out.println(listado.getSttring("nombre")+" ");
+                System.out.println(listado.getSttring("apellidos")+" ");
+            }
+            
+            
+    }
+  
+    
+    
 }
